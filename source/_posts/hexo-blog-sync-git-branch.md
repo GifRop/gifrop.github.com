@@ -17,7 +17,7 @@ git add .
 git commit -m 'new'
 git push origin hexo_code
 ```
-这样我们在其他的电脑上，只需要clone代码，并在目录中执行npm install。之后就能按照正常的操作更新博客了。  
+这样我们在其他的电脑上，只需要clone代码(记得添加ssh key)，并在目录中执行npm install。之后就能按照正常的操作更新博客了。  
 ```
 git clone git@github.com:Users/page.github.com.git
 cd page.github.com.git

@@ -1,0 +1,11 @@
+添加新文章：
+hexo new '文件名'
+hexo g #生成新页面代码
+hexo s #预览
+hexo clean #清理生成
+hexo d #部署
+
+git add .
+git commit -m "desc"
+git push origin hexo_code
+

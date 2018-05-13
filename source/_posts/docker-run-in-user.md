@@ -5,7 +5,7 @@ tags: [Docker]
 ---
 平时工作中，使用docker容器时，均使用的root账号登录。但是有时候，你需要使用其他的账号，部署一些需要权限限制的服务，例如nginx。<!-- more -->
 使用下列步骤即可完成使用普通用户登录docker。  
-第一步，创建一个work账号：  
+第一步，启动你的容器并以root进入，创建一个work账号：  
 ```sh
 useradd -d /home/work work
 ```
@@ -27,6 +27,7 @@ chown work:work /home/work #设置目录拥有者和组
 ```
 这时候就可以使用work账号进行登录。  
 ```sh
+#退出容器进入宿主机执行
 docker exec -it --user=work test bash
 ```
 

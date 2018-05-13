@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-cn.yml">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="IOS Recorder-lite APP 去广告"/>
+
+
+
+
+  <meta name="keywords" content="linux、crack、coder" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="KeyKernel's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://KeyKernel.org/2015/10/17/block_recorder-lite_ads/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-39791051-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-39791051-1');
+</script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> IOS Recorder-lite APP 去广告 - KeyKernel's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">KeyKernel's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/links">
+        <li class="mobile-menu-item">
+          
+          
+            友链
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">KeyKernel's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/links">
+            
+            
+              友链
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          IOS Recorder-lite APP 去广告
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-10-17
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>Recorder-lite是IOS上一个比较简洁的录音软件，有收费版本，免费的版本和收费版本区别就是广告。下面我们实战Recorder-lite的广告去除。<a id="more"></a><br>首先看下广告的位置，我现在安装的版本为2.1.5版，广告如下：<br><img src="/photo/rcdimg/adsview.png" alt=""><br>这个图片是在Reveal工具中截图出来的。可以看到，广告是在这个GADBannerView里。<br>用Clutch解密出程序，class-dump-z dump出头文件。找到GADBannerView.h文件。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@interface GADBannerView : XXUnknownSuperclass &lt;GADSlotAdEventDelegate, GADSlotDelegate&gt; &#123;</span><br><span class="line">	BOOL _hasLoadedAd;</span><br><span class="line">	BOOL _hasInitialized;</span><br><span class="line">	BOOL _autoloadEnabled;</span><br><span class="line">	UIViewController* _rootViewController;</span><br><span class="line">	id&lt;GADBannerViewDelegate&gt; _delegate;</span><br><span class="line">	id&lt;GADInAppPurchaseDelegate&gt; _inAppPurchaseDelegate;</span><br><span class="line">	UIView* _rootAdView;</span><br><span class="line">	GADSlot* _slot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>用类名检索引用，检索到以下几个文件，查看引用上下文，我们锁定了AdHelper.h。<br><img src="/photo/rcdimg/class_sc.png" alt=""><br>AdHelper看名字看不出什么，但是打开一看可以发现他显然是一个广告管理的一个类。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@interface AdHelper : XXUnknownSuperclass &lt;GADInterstitialDelegate, ADInterstitialAdDelegate, ADBannerViewDelegate, GADBannerViewDelegate&gt; &#123;</span><br><span class="line">	GADInterstitial* mobInterstitialAd_;</span><br><span class="line">	ADInterstitialAd* interstitialAd_;</span><br><span class="line">	DFPInterstitial* dfpInterstitialAd_;</span><br><span class="line">	GADBannerView* boxAd_Amob;</span><br><span class="line">	DFPBannerView* boxAd_Dfp;</span><br><span class="line">	ADBannerView* boxAd_Apple;</span><br><span class="line">	FPPopoverController* _popover;</span><br><span class="line">	UIView* _contentView;</span><br><span class="line">	UIView* _targetView;</span><br><span class="line">	UIView* _boxAd;</span><br><span class="line">	CGSize _oContentSize;</span><br><span class="line">&#125;</span><br><span class="line">@property(assign, nonatomic) __weak UIView* boxAd;</span><br><span class="line">@property(readonly, assign, nonatomic) BOOL isBoxAdLoaded;</span><br><span class="line">...</span><br><span class="line">+(id)sharedAdHelper;</span><br><span class="line">-(<span class="keyword">void</span>).cxx_destruct;</span><br><span class="line">-(<span class="keyword">void</span>)clearContentSubViews;</span><br><span class="line">-(<span class="keyword">void</span>)layoutForCurrentOrientation;</span><br><span class="line">-(<span class="keyword">void</span>)showFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createAppleFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createAdmobFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createDFPFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createBoxAd;</span><br><span class="line">...</span><br><span class="line">@end</span><br></pre></td></tr></table></figure><br>从类的成员函数我们可以顾名思义，showFullAd应该是现实所有的广告，createFullAd创建所有广告。以及一些创建广告的方法。使用Hopper查看：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> -[AdHelper createFullAd](<span class="keyword">void</span> * self, <span class="keyword">void</span> * _cmd) &#123;</span><br><span class="line">    [self createBoxAd];</span><br><span class="line">    [self createAdmobFullAd];</span><br><span class="line">    [self createAppleFullAd];</span><br><span class="line">    Pop();</span><br><span class="line">    Pop();</span><br><span class="line">    Pop();</span><br><span class="line">    r0 = loc_187474(self, @selector(createDFPFullAd));</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>作者挺为我们考虑的，这里应该是初始化广告的函数了。直接建个tweak工程键入代码，为了简单，我hook了他所有创建ad的函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@interface AdHelper &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)showFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createAppleFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createAdmobFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createDFPFullAd;</span><br><span class="line">-(<span class="keyword">void</span>)createBoxAd;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">%hook AdHelper</span><br><span class="line">-(<span class="keyword">void</span>)showFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createAppleFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createAdmobFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createDFPFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createBoxAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">%end</span><br></pre></td></tr></table></figure><br>编译发送到手机测试，发现广告已经不加载了：<br><img src="/photo/rcdimg/pass_ads.png" alt=""><br>不过我们看到，录音机上边有几个按钮，两个购物车按钮，一个下载的按钮。一个是wifi web连接。还有一个是mp3格式切换的按钮。虽然广告不加载了，但是如果点击这些按钮下载购物车按钮，会跳转到appstore里去下载软件。这样作为强迫症的我们是不能接受的。下面我们来分析隐藏一下这些按钮。<br>我们在hopper里搜索itunes，找到练到itunes的连接，根据引用查找到想过的代码，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XREF=-[RootViewController reviewAction]+<span class="number">88</span></span><br><span class="line">XREF=-[RootViewController moreApp]+<span class="number">326</span></span><br><span class="line">XREF=-[RecordingViewController buyAction]+<span class="number">72</span>, -[RootViewController cloud:]+<span class="number">72</span></span><br></pre></td></tr></table></figure><br> 总共找到4处引用，涉及RootViewController和RecordingViewController两个类。<br> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> @interface RecordingViewController : XXUnknownSuperclass &lt;RecorderDelegate&gt; &#123;</span><br><span class="line">	<span class="keyword">double</span> lowPassResults_;</span><br><span class="line">	UIButton* recordOrPauseButton;</span><br><span class="line">	UIButton* listOrStopButton;</span><br><span class="line">	UIImageView* timeBackground;</span><br><span class="line">	UILabel* timeLable;</span><br><span class="line">	UIButton* formatButton;</span><br><span class="line">	Recorder* recorder;</span><br><span class="line">	NSTimer* levelTimer_;</span><br><span class="line">	<span class="keyword">int</span> count;</span><br><span class="line">	UIButton* buyButton;</span><br><span class="line">	id&lt;RecordingViewControllerDelegate&gt; _delegate;</span><br><span class="line">	UIView* _firstResponderView;</span><br><span class="line">&#125;</span><br><span class="line">@interface RootViewController : XXUnknownSuperclass &lt;FPPopoverControllerDelegate, FilesViewControllerDelegate, RecordingViewControllerDelegate, PlayingViewControllerDelegate&gt; &#123;</span><br><span class="line">	FilesViewController* filesViewController;</span><br><span class="line">	UIView* lineView;</span><br><span class="line">	UIButton* cloudButton;</span><br><span class="line">	UIButton* recordingButton;</span><br><span class="line">	UIButton* wifiButton;</span><br><span class="line">	UIView* emptyView;</span><br><span class="line">	UIImageView* emptyImageView;</span><br><span class="line">	UILabel* emptyLabel;</span><br><span class="line">	FPPopoverController* popover;</span><br><span class="line">	RecordingViewController* recordingViewController;</span><br><span class="line">	PlayingViewController* playingViewController;</span><br><span class="line">	WiFiViewController* wiFiViewController;</span><br><span class="line">	UIView* handView;</span><br><span class="line">	UIButton* downloadButton;</span><br><span class="line">	UIImageView* imageN;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>对比程序界面，我们发现了几个可疑的UIButton：buyButton、cloudButton、downloadButton，我们试试在界面加载完成的时候隐藏掉。修改tweak代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIkit/UIkit.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;RootViewController.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;AdHelper.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;RecordingViewController.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">%hook AdHelper</span><br><span class="line">-(<span class="keyword">void</span>)showFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createAppleFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createAdmobFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createDFPFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createBoxAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">%end</span><br><span class="line"></span><br><span class="line">%hook RootViewController</span><br><span class="line">-(<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">	%orig;</span><br><span class="line">	UIButton* downloadButton = MSHookIvar&lt;UIButton* &gt;(self,<span class="string">"downloadButton"</span>);</span><br><span class="line">	downloadButton.hidden = YES;</span><br><span class="line">	UIButton* cloudButton = MSHookIvar&lt;UIButton* &gt;(self,<span class="string">"cloudButton"</span>);</span><br><span class="line">	cloudButton.hidden = YES;</span><br><span class="line">&#125;</span><br><span class="line">%end</span><br><span class="line"></span><br><span class="line">%hook RecordingViewController</span><br><span class="line">-(<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">	%orig;</span><br><span class="line">	UIButton* buyButton = MSHookIvar&lt;UIButton* &gt;(self,<span class="string">"buyButton"</span>);</span><br><span class="line">	buyButton.hidden = YES;</span><br><span class="line">&#125;</span><br><span class="line">%end</span><br></pre></td></tr></table></figure><br>我们惊喜的发现RootViewController上边的按钮被顺利隐藏了，但是RecordingViewController上的按钮却没被隐藏。<br><img src="/photo/rcdimg/pass_ads_a.png" alt=""><br>经过测试发现，隐藏buyButton的时候buyButton还没被创建。在录音按钮响应函数里加入隐藏代码，发现可以生效，而每次加载这个录音页面的时候，这个按钮会重新加载进来，所以这个按钮应该是动态创建的。我们在hopper里搜索buyButton。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">001f</span>db9b         db  <span class="number">0x00</span> ; <span class="string">'.'</span></span><br><span class="line">             objc_ivar_offset_RecordingViewController_buyButton:</span><br><span class="line"><span class="number">001f</span>db9c         db  <span class="number">0xcc</span> ; <span class="string">'.'</span>                                                 ; XREF=-[RecordingViewController dealloc]+<span class="number">50</span>, -[RecordingViewController dealloc]+<span class="number">52</span>, -[RecordingViewController viewDidAppear:]+<span class="number">58</span>, -[RecordingViewController viewDidAppear:]+<span class="number">60</span>, -[RecordingViewController .cxx_destruct]+<span class="number">16</span>, -[RecordingViewController .cxx_destruct]+<span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> -[RecordingViewController viewDidAppear:](<span class="keyword">void</span> * self, <span class="keyword">void</span> * _cmd, <span class="keyword">char</span> arg2) &#123;</span><br><span class="line">	......</span><br><span class="line">	r8 = *objc_ivar_offset_RecordingViewController_buyButton;</span><br><span class="line">	r0 = [UIButton buttonWithType:<span class="number">0x0</span>];</span><br><span class="line">	r0 = [r0 retain];</span><br><span class="line">	r1 = *(r4 + r8);</span><br><span class="line">	*(r4 + r8) = r0;</span><br><span class="line">	[r1 release];</span><br><span class="line">	r5 = *(r4 + r8);</span><br><span class="line">	r6 = [[UIImage imageNamed:@<span class="string">"buy.png"</span>] retain];</span><br><span class="line">	[r5 setBackgroundImage:r6 forState:<span class="number">0x0</span>];</span><br><span class="line">	[r6 release];</span><br><span class="line">	......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>动态加载buyButton的代码在RecordingViewController viewDidAppear函数里，我们hook掉他试试。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIkit/UIkit.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;RootViewController.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;AdHelper.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;RecordingViewController.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">%hook AdHelper</span><br><span class="line">-(<span class="keyword">void</span>)showFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createAppleFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createAdmobFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createDFPFullAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">-(<span class="keyword">void</span>)createBoxAd&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">%end</span><br><span class="line"></span><br><span class="line">%hook RootViewController</span><br><span class="line">-(<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">	%orig;</span><br><span class="line">	UIButton* downloadButton = MSHookIvar&lt;UIButton* &gt;(self,<span class="string">"downloadButton"</span>);</span><br><span class="line">	downloadButton.hidden = YES;</span><br><span class="line">	UIButton* cloudButton = MSHookIvar&lt;UIButton* &gt;(self,<span class="string">"cloudButton"</span>);</span><br><span class="line">	cloudButton.hidden = YES;</span><br><span class="line">&#125;</span><br><span class="line">%end</span><br><span class="line"></span><br><span class="line">%hook RecordingViewController</span><br><span class="line">-(<span class="keyword">void</span>)viewDidAppear:(BOOL)view</span><br><span class="line">&#123;</span><br><span class="line">	%orig;</span><br><span class="line">	UIButton* buyButton = MSHookIvar&lt;UIButton* &gt;(self,<span class="string">"buyButton"</span>);</span><br><span class="line">	buyButton.hidden = YES;</span><br><span class="line">&#125;</span><br><span class="line">%end</span><br></pre></td></tr></table></figure><br><img src="/photo/rcdimg/pass_ads_end.png" alt=""><br>我们的app界面已经相当的简洁了。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://KeyKernel.org">KeyKernel</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://KeyKernel.org/2015/10/17/block_recorder-lite_ads/">http://KeyKernel.org/2015/10/17/block_recorder-lite_ads/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">打赏</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/IOS越狱开发/">IOS越狱开发</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/05/13/docker-run-in-user/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">使用user账号登录docker容器</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2014/12/03/ios_theos_xcode/">
+        <span class="next-text nav-default">IOS越狱开发环境搭建</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:keykernel@keykernel.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">KeyKernel</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://keykernel.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

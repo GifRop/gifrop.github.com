@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-cn.yml">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="谈谈Aladdin HASP SRM的一般破解思路"/>
+
+
+
+
+  <meta name="keywords" content="linux、crack、coder" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="KeyKernel's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://KeyKernel.org/2014/05/16/talk_about_aladdin_hasp_srm/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-39791051-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-39791051-1');
+</script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 谈谈Aladdin HASP SRM的一般破解思路 - KeyKernel's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">KeyKernel's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/links">
+        <li class="mobile-menu-item">
+          
+          
+            友链
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">KeyKernel's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/links">
+            
+            
+              友链
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          谈谈Aladdin HASP SRM的一般破解思路
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-05-16
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>看到论坛有人在讨论这个,我也来推一把.<a id="more"></a><br>无狗<br>能力太差搞不定.  </p>
+<p>有狗<br>直接脱壳<br>关于修IAT,先找到HOOK后的IAT表的位置,随便取一个函数,新建EIP,然后F7的跟进去,找到一个固定的地方,会出现正常的函数,写回去就好了.<br>记得upk论坛里有这个脱壳脚本的,关键在于,这里需要注意几个API是被壳模拟掉的.  </p>
+<p>印象最深的是这几个:<br>  GetCommandLineA<br>  GetStartupInfoA<br>  GetCurrentProcess<br>  GetProcAddress<br>其他的如果还有你不知道是什么函数的,直接找个同类型编译器编译的无壳程序,对比上下文代码一般都能找到.  </p>
+<p>壳都脱了,下面来说破解.<br>破解很简单.直接下载一份狗的SDK,编译一个demo程序.<br>载入OD你们会发现,在打开,读取,写入,关闭等操作的函数调用前后都有一段奇怪的代码,<br>(我这里没有备份的二进制字节码了.好几年没碰了).把这个放到需要破解的程序里一搜就知道那些函数是那些了.很简单.<br>直接HOOK掉读取函数,(没脱壳的程序先HOOK掉CreateFileW函数,在My_CreateFileW中再Hook读写函数)<br>在my_read函数里直接修改输入参数,把狗里的数据全部读取出来写入文件中就OK了.  </p>
+<p>解析来把全部狗操作的函数都HOOK掉,重定向到对文件的操作.<br>比如<br>Open_dog =&gt; CreateFile<br>Read_dog =&gt; ReadFile<br>….<br>或者<br>你把数据写在dll里,弄成个Buffer,按照地址便移索引.把dll加到程序的导入表中……..<br>Do what you want to do..  </p>
+<p>最后你会发现,现在完全不需要狗了.<br>就是这么简单.  </p>
+<p>Have a fun….  </p>
+<p>–keykernel<br>20140515  </p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://KeyKernel.org">KeyKernel</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://KeyKernel.org/2014/05/16/talk_about_aladdin_hasp_srm/">http://KeyKernel.org/2014/05/16/talk_about_aladdin_hasp_srm/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">打赏</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/加密狗/">加密狗</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2014/06/06/crack_nisy_cm_nf_v04/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Nisy cm_nf v0.4分析</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2014/05/14/keygen_filesplit_234424r/">
+        <span class="next-text nav-default">KeyGen FileSplit 2.34.424R</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:keykernel@keykernel.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">KeyKernel</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://keykernel.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

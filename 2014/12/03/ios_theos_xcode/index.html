@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-cn.yml">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="IOS越狱开发环境搭建"/>
+
+
+
+
+  <meta name="keywords" content="linux、crack、coder" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="KeyKernel's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://KeyKernel.org/2014/12/03/ios_theos_xcode/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-39791051-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-39791051-1');
+</script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> IOS越狱开发环境搭建 - KeyKernel's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">KeyKernel's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/links">
+        <li class="mobile-menu-item">
+          
+          
+            友链
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">KeyKernel's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/links">
+            
+            
+              友链
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          IOS越狱开发环境搭建
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-12-03
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>环境为Xcode6.1，sdk ios8.1<a id="more"></a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">#安装最新的XCode</span><br><span class="line">#安装Command Line Tools <span class="keyword">for</span> XCode</span><br><span class="line">打开XCode: File -&gt; New -&gt; Project -&gt; Application -&gt;Command Line Tool.</span><br><span class="line"><span class="keyword">or</span>使用命令行:sudo xcode-select --install</span><br><span class="line"></span><br><span class="line"><span class="meta"># clone theos.git 下载theos</span></span><br><span class="line">cd ~</span><br><span class="line">git clone git:<span class="comment">//github.com/DHowett/theos.git</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># clone iphoneheaders.git 下载ios头文件,头文件放在theos/<span class="meta-keyword">include</span>目录下</span></span><br><span class="line">cd ~/theos/</span><br><span class="line">mv include include.bak</span><br><span class="line">git clone git:<span class="comment">//github.com/rpetrich/iphoneheaders.git include</span></span><br><span class="line"><span class="keyword">for</span> FILE in include.bak/ *.h; <span class="keyword">do</span> mv $FILE include/; done</span><br><span class="line">rmdir include.bak/</span><br><span class="line"></span><br><span class="line"><span class="meta"># get IOSurfaceAPI.h 下载IOSurfaceAPI.h头文件，这个文件在上面的头文件里没有包含</span></span><br><span class="line">cd ~/theos/include/IOSurface/</span><br><span class="line">curl -O -k http:<span class="comment">//keykernel.org/other/IOSurfaceAPI.h</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># clone theos-nic-templates.git 下载theos模板，默认只有5个，这里有5个</span></span><br><span class="line">cd ~/theos/templates/</span><br><span class="line">git clone git:<span class="comment">//github.com/orikad/theos-nic-templates.git</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># get ldid for Mac OS X 下载ldid(必须的工具)</span></span><br><span class="line">cd ~/theos/bin</span><br><span class="line">curl -O http:<span class="comment">//keykernel.org/other/ldid</span></span><br><span class="line">chmod a+x ldid</span><br><span class="line"></span><br><span class="line"><span class="meta"># get libsubstrate.dylib substrate.h 下载最新的hook框架和头文件</span></span><br><span class="line">cd ~/theos</span><br><span class="line">curl -OL http:<span class="comment">//apt.saurik.com/debs/mobilesubstrate_0.9.5101_iphoneos-arm.deb</span></span><br><span class="line">dpkg-deb -x mobilesubstrate_0<span class="number">.9</span><span class="number">.5101</span>_iphoneos-arm.deb mobilesubstrate</span><br><span class="line">cp mobilesubstrate/Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate  ~/theos/lib/libsubstrate.dylib</span><br><span class="line">cp mobilesubstrate/Library/Frameworks/CydiaSubstrate.framework/Headers/CydiaSubstrate.h include/substrate.h</span><br><span class="line"></span><br><span class="line">#下载最新的MacPorts并安装，安装完重启CMD</span><br><span class="line">https:<span class="comment">//www.macports.org/</span></span><br><span class="line">#更新MacPorts,时间比较长，需要耐心等待，如果提示xcode授权有问题请在XCode里</span><br><span class="line">#点击同意协议即可，或者在命令行里sudo xcodebuild -license，</span><br><span class="line">#按任意键，最后Agree即可。</span><br><span class="line">sudo port -v selfupdate</span><br><span class="line"></span><br><span class="line">#下载dpkg用于deb打包</span><br><span class="line">sudo port install dpkg</span><br><span class="line"></span><br><span class="line">#到目前为止，基本上的环境都搭建好了，有些朋友还会使用IOSOpenDev</span><br><span class="line">#可以到官网下载最新的版本</span><br><span class="line">#安装失败可以换上代理试试，该工具会联网下载安装文件，某些网络</span><br><span class="line">#无法下载，换个网络环境或者上代理即可。</span><br><span class="line"></span><br><span class="line">#使用theos测试</span><br><span class="line">$/opt/theos/bin/nic.pl</span><br><span class="line">NIC <span class="number">2.0</span> - New Instance Creator</span><br><span class="line">------------------------------</span><br><span class="line">  [<span class="number">1.</span>] iphone/application</span><br><span class="line">  [<span class="number">2.</span>] iphone/cydget</span><br><span class="line">  [<span class="number">3.</span>] iphone/framework</span><br><span class="line">  [<span class="number">4.</span>] iphone/library</span><br><span class="line">  [<span class="number">5.</span>] iphone/notification_center_widget</span><br><span class="line">  [<span class="number">6.</span>] iphone/preference_bundle</span><br><span class="line">  [<span class="number">7.</span>] iphone/sbsettingstoggle</span><br><span class="line">  [<span class="number">8.</span>] iphone/tool</span><br><span class="line">  [<span class="number">9.</span>] iphone/tweak</span><br><span class="line">  [<span class="number">10.</span>] iphone/xpc_service</span><br><span class="line">Choose a Template (required): </span><br><span class="line">#选择模板，接着包名，作者之类的可以自己设置好</span><br><span class="line"></span><br><span class="line">#写好代码之后</span><br><span class="line">make                <span class="comment">//编译</span></span><br><span class="line">make package        <span class="comment">//编译成deb包</span></span><br><span class="line">make package install<span class="comment">//编译成deb包并上传到手机安装</span></span><br><span class="line"></span><br><span class="line">#遇到一些导入的类无法链接的，把Makefile里的XXXX改为建立工程的包名，并添加对应的库</span><br><span class="line">XXXXTweak_FRAMEWORKS = UIKit  <span class="comment">//添加UIKit</span></span><br><span class="line"></span><br><span class="line">#makefile的一些设置</span><br><span class="line"><span class="keyword">export</span> ARCHS = armv7 armv7s arm64  <span class="comment">//编译生成文件的指令集，这里为三种都生成</span></span><br><span class="line"><span class="keyword">export</span> THEOS_DEVICE_IP=<span class="number">192.168</span><span class="number">.1</span><span class="number">.11</span> <span class="comment">//设备的IP地址</span></span><br><span class="line"><span class="keyword">export</span> SDKVERSION=<span class="number">8.1</span>               <span class="comment">//IOS SDK版本</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://KeyKernel.org">KeyKernel</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://KeyKernel.org/2014/12/03/ios_theos_xcode/">http://KeyKernel.org/2014/12/03/ios_theos_xcode/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">打赏</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/IOS越狱开发/">IOS越狱开发</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/10/17/block_recorder-lite_ads/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">IOS Recorder-lite APP 去广告</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2014/06/26/About_Hexo_Some_Question/">
+        <span class="next-text nav-default">一些hexo博客搬家的问题</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:keykernel@keykernel.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">KeyKernel</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://keykernel.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

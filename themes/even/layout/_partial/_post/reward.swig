@@ -8,6 +8,7 @@
         <label class="qr-code-image" for="reward">
           <img class="image" src="{{url_for(qrCode.wechat)}}" title="wechat">
         </label>
+
       {% endif %}
       {% if qrCode.alipay %}
         <label class="qr-code-image" for="reward">

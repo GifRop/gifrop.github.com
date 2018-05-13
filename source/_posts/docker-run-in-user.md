@@ -21,7 +21,7 @@ passwd:all authentication takens updated successfully.
 ```sh
 #如果没创建则创建
 #mkdir -p /home/work
-chown work:work /home/work
+chown work:work /home/work #设置目录拥有者和组
 #如果该目录有子目录
 #chown -R work:work /home/work
 ```

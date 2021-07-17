@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>KeyKernel&#39;s Blog</title>
+  
+  <subtitle>慕容医仙</subtitle>
+  <link href="http://keykernel.org/atom.xml" rel="self"/>
+  
+  <link href="http://keykernel.org/"/>
+  <updated>2021-07-17T09:21:47.000Z</updated>
+  <id>http://keykernel.org/</id>
+  
+  <author>
+    <name>KeyKernel</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021 年阅读书单</title>
+    <link href="http://keykernel.org/2021/07/17/reader/"/>
+    <id>http://keykernel.org/2021/07/17/reader/</id>
+    <published>2021-07-17T09:08:03.000Z</published>
+    <updated>2021-07-17T09:21:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>自我成长，2021。</p><span id="more"></span><p>《黑天鹅》进度 12% 。<br>《少有人走的路》作者【美】斯科特·派克。进度 3%。<br>《麦肯锡方法》进度 6%。</p>]]></content>
+    
+    
+    <summary type="html">2021 年阅读书单</summary>
+    
+    
+    
+    
+    <category term="book" scheme="http://keykernel.org/tags/book/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,16 +1,29 @@
 ---
-title: links
-layout: page
+layout: links
 
-date: 2018-05-13 12:02:21
+links: 
+  - name: ZhangDaren
+    url: http://zhangdaren.github.io
+    avatar: https://keykernel.org/images/cat.png
+    target: _blank
+    backgroundColor: '#fff'
+    textColor: '#444'
+  - name: 小王子
+    url: http://smvirus.com
+    avatar: https://avatars.githubusercontent.com/u/7138906?u=a97393f84a0b0e72e8d65a4a2f31fa9357013515&v=4
+    target: _blank
+    backgroundColor: '#fff'
+    textColor: '#444'
+  - name: Wandai
+    url: http://twd2.me
+    avatar: https://keykernel.org/images/cat.png
+    target: _blank
+    backgroundColor: '#fff'
+    textColor: '#444'
+  - name: 虾导
+    url: http://xiaoxia.org
+    avatar: https://xiaoxia.org/upfiles/2010/10/1261111292.jpg
+    target: _blank
+    backgroundColor: '#fff'
+    textColor: '#444'
 ---
-这里有一群可爱而有趣的人, 过去逛逛吧!  
-
-[Zhangdaren's Blog](http://zhangdaren.github.io)  
-[LShang's     Blog](http://blog.smvirus.com)  
-[RootSule's   Blog](http://diaosicode.com)  
-[FlowerCode's Blog](http://flowercode.org)  
-[Thecjw's     Blog](http://thecjw.0ginr.com/blog/)  
-[Iceboy's     Blog](http://iceboy.org)  
-[44670's      Blog](http://44670.org)  
-[twd2's       Blog](http://twd2.me)  

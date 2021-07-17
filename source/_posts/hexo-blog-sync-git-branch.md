@@ -6,7 +6,7 @@ tags: [hexo,github]
 使用github搭建博客后，每次更新需要在原来的代码基础上更新。如果在其他个人电脑上，没有原来的代码，则无法立即同步更新博客。这时候我们可以选择将代码push到一些代码服务器上，但是我们这里可以这么做。<!-- more -->  
 首先，我们先对github中博客的代码仓库建立一个新的分支hexo_code，并设置代码库的Branches->Default branches为新建的分支hexo_code。  
 克隆代码库到本地:  
-```
+```bash
 git clone git@github.com:Users/page.github.com.git
 cd page.github.com.git
 ```

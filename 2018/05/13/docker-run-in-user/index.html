@@ -27,27 +27,27 @@
     <!-- meta -->
 
 
-<title>GoodJob | KeyKernel&#39;s Blog</title>
+<title>使用user账号登录docker容器 | KeyKernel&#39;s Blog</title>
 
 
-    <meta name="keywords" content="linux、docker、coder">
+    <meta name="keywords" content="Docker, linux、docker、coder">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="404                     true">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KeyKernel&#39;s Blog">
-<meta property="og:url" content="http://keykernel.org/404/index.html">
+    <meta name="description" content="平时工作中，使用docker容器时，均使用的root账号登录。但是有时候，你需要使用其他的账号，部署一些需要权限限制的服务，例如nginx。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用user账号登录docker容器">
+<meta property="og:url" content="http://keykernel.org/2018/05/13/docker-run-in-user/index.html">
 <meta property="og:site_name" content="KeyKernel&#39;s Blog">
-<meta property="og:description" content="404                     true">
+<meta property="og:description" content="平时工作中，使用docker容器时，均使用的root账号登录。但是有时候，你需要使用其他的账号，部署一些需要权限限制的服务，例如nginx。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-07-17T15:01:57.000Z">
-<meta property="article:modified_time" content="2021-07-17T15:01:57.000Z">
+<meta property="article:published_time" content="2018-05-13T05:30:49.000Z">
+<meta property="article:modified_time" content="2020-12-27T07:11:13.000Z">
 <meta property="article:author" content="KeyKernel">
-<meta property="article:tag" content="linux、docker、coder">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
 
 
@@ -134,10 +134,10 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        GoodJob
+        使用user账号登录docker容器
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2021/07/" class="post-meta__date button">2021-07-17</a>
+        <a href="/archives/2018/05/" class="post-meta__date button">2018-05-13</a>
         
  
         
@@ -171,16 +171,16 @@
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <!DOCTYPE html>
-<html>
-    <head>
-         <meta charset="UTF-8" />
-         <title>404</title>
-    </head>
-    <body>
-         <script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" homePageName="返回首页" homePageUrl="https://keykernel.org"></script>
-true</body>
-</html>
+        <p>平时工作中，使用docker容器时，均使用的root账号登录。但是有时候，你需要使用其他的账号，部署一些需要权限限制的服务，例如nginx。<span id="more"></span><br>使用下列步骤即可完成使用普通用户登录docker。<br>第一步，启动你的容器并以root进入，创建一个work账号：  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -d /home/work work</span><br></pre></td></tr></table></figure>
+<p>第二步，为用户设置登录密码：  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@<span class="built_in">test</span>]<span class="comment"># passwd work</span></span><br><span class="line">Changing password <span class="keyword">for</span> user work.</span><br><span class="line">New UNIX password:</span><br><span class="line">Retype new UNIX password:</span><br><span class="line">passwd:all authentication takens updated successfully.</span><br></pre></td></tr></table></figure>
+<p>第三步，设置用户主目录，由于之前使用的root创建的/home/work，这时候登录会有问题。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果没创建则创建</span></span><br><span class="line"><span class="comment">#mkdir -p /home/work</span></span><br><span class="line">chown work:work /home/work <span class="comment">#设置目录拥有者和组</span></span><br><span class="line"><span class="comment">#如果该目录有子目录</span></span><br><span class="line"><span class="comment">#chown -R work:work /home/work</span></span><br></pre></td></tr></table></figure>
+<p>这时候就可以使用work账号进行登录。  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#退出容器进入宿主机执行</span></span><br><span class="line">docker <span class="built_in">exec</span> -it --user=work <span class="built_in">test</span> bash</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
     <div class="post__license">
@@ -191,7 +191,7 @@ true</body>
             <strong>
                 Permalink: 
             </strong>
-            <a href="http://keykernel.org/404/index.html">http://keykernel.org/404/index.html</a>
+            <a href="http://keykernel.org/2018/05/13/docker-run-in-user/">http://keykernel.org/2018/05/13/docker-run-in-user/</a>
         </p>
         
             <strong>
@@ -201,10 +201,33 @@ true</body>
         
     </div>
  
-    <div class="post-footer__meta"><p>updated at 2021-07-17</p></div> 
-    <div class="post-meta__cats"></div> 
+    <div class="post-footer__meta"><p>updated at 2020-12-27</p></div> 
+    <div class="post-meta__cats"><a href="/tags/Docker/" class="post-tags__link button"># Docker</a></div> 
 </article>
 
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/2018/05/13/hexo-blog-sync-git-branch/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            利用github分支同步博客代码，方便不同机器上更新博客
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+        </div>
+    </div>
 
 
 
@@ -292,8 +315,8 @@ true</body>
     <script>
         function loadComment() {
             window.disqus_config = function () {
-                this.page.url = 'http://keykernel.org/404/index.html';
-                this.page.identifier = '404/index.html';
+                this.page.url = 'http://keykernel.org/2018/05/13/docker-run-in-user/';
+                this.page.identifier = '2018/05/13/docker-run-in-user/';
             };
             (function(){
                 var dsq = document.createElement('script');

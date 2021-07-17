@@ -212,9 +212,9 @@ true</body>
         
     <h4>Comments</h4>
     
+    
     <div id="disqus_thread">Unable to load Disqus, please make sure your network can access.</div>
 
-    
     
     
     
@@ -289,19 +289,28 @@ true</body>
 
 
     
+
+    
     <script>
         function loadComment() {
-            window.disqus_config = function () {
-                this.page.url = 'http://keykernel.org/404/index.html';
-                this.page.identifier = '404/index.html';
+            let e, i;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                new DisqusJS({
+                    shortname: 'keykernel.disqus.com',
+                    siteName: 'KeyKernel&#39;s Blog',
+                    api: '',
+                    apikey: 'rBAZ38deOqzJmSas8tEL65HQ6qh0K3TIoXyDgPCAAncAkqSAc60CCoFmzUEpE9vr',
+                    admin: '',
+                    identifier: '404/index.html',
+                    url: 'http://keykernel.org/404/index.html',
+                    nesting: '2'
+                });
             };
-            (function(){
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + 'keykernel.disqus.com' + '.disqus.com/embed.js';
-                (document.head || document.body).appendChild(dsq);
-            })();
+            (i = document.createElement("link")).rel = "stylesheet",
+            i.href = 'https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqusjs.css',
+            document.head.appendChild(i);
         }
     
         var runningOnBrowser = typeof window !== "undefined";
@@ -323,8 +332,6 @@ true</body>
         }, 1);
     </script>
 
-
-    
     
     
 

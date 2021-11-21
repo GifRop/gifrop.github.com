@@ -9,3 +9,13 @@ git add .
 git commit -m "desc"
 git push origin hexo_code
 
+# add links:
+
+
+links: 
+  - name: xxx Blog
+    url: https://xx.com
+    avatar: https://ccc.png
+    target: _blank
+    backgroundColor: '#fff'
+    textColor: '#444'

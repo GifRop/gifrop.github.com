@@ -6,7 +6,7 @@
   <link href="http://keykernel.org/atom.xml" rel="self"/>
   
   <link href="http://keykernel.org/"/>
-  <updated>2021-07-17T14:56:15.000Z</updated>
+  <updated>2021-07-18T02:47:39.000Z</updated>
   <id>http://keykernel.org/</id>
   
   <author>
@@ -15,43 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>2021 年阅读书单</title>
-    <link href="http://keykernel.org/2021/07/17/2021-reader/"/>
-    <id>http://keykernel.org/2021/07/17/2021-reader/</id>
-    <published>2021-07-17T09:08:03.000Z</published>
-    <updated>2021-07-17T14:56:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h4><table><thead><tr><th align="center">书名</th><th align="center">进度</th><th align="center">链接</th></tr></thead><tbody><tr><td align="center">《黑天鹅》</td><td align="center">进度 12%</td><td align="center"><a href="https://item.jd.com/1033414877.html">https://item.jd.com/1033414877.html</a></td></tr><tr><td align="center">《少有人走的路》</td><td align="center">进度 3%</td><td align="center"><a href="https://item.jd.com/10023994928167.html">https://item.jd.com/10023994928167.html</a></td></tr></tbody></table><span id="more"></span><h4 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h4>]]></content>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;书单&quot;&gt;&lt;a href=&quot;#书单&quot; class=&quot;headerlink&quot; title=&quot;书单&quot;&gt;&lt;/a&gt;书单&lt;/h4&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;书名&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;进度&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;链接&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;《黑天鹅》&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;进度 12%&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://item.jd.com/1033414877.html&quot;&gt;https://item.jd.com/1033414877.html&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;《少有人走的路》&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;进度 3%&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://item.jd.com/10023994928167.html&quot;&gt;https://item.jd.com/10023994928167.html&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;</summary>
-    
-    
-    
-    
-    <category term="book" scheme="http://keykernel.org/tags/book/"/>
-    
-  </entry>
   
   <entry>
     <title>利用github分支同步博客代码，方便不同机器上更新博客</title>

@@ -45,7 +45,7 @@
 <meta property="og:description" content="使用 go get 下载依赖时，出现 SSL certificate problem: certificate has expired 错误">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-12-12T02:40:01.000Z">
-<meta property="article:modified_time" content="2021-12-12T14:45:30.000Z">
+<meta property="article:modified_time" content="2021-12-12T15:56:34.000Z">
 <meta property="article:author" content="KeyKernel">
 <meta property="article:tag" content="go">
 <meta property="article:tag" content="git">
@@ -181,7 +181,7 @@
 <p>这是该模块所在服务端使用的 https 证书问题，certificate has expired 是证书已经过期，类似的错误还有 Invalid 无效证书等。可以通过设置不进行证书验证：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config –global http.sslVerify <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
 
-<p> 另外，也可以通过查找该模块是否有 github 的托管，通过 github 的地址拉去，例如 <code>gopkg.in/ini.v1</code> 模块在 github 上的仓库为 <code>github.com/go-ini/ini</code> 。可以通过 <code>go get github.com/go-ini/ini</code>  获取。</p>
+<p> 另外，也可以通过查找该模块是否有 github 的托管，通过 github 的地址拉取，例如 <code>gopkg.in/ini.v1</code> 模块在 github 上的仓库为 <code>github.com/go-ini/ini</code> 。可以通过 <code>go get github.com/go-ini/ini</code>  获取。</p>
 
     </div>
     

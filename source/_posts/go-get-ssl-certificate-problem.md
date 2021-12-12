@@ -20,4 +20,4 @@ package gopkg.in/ini.v1: exit status 128
 git config –global http.sslVerify false
 ```
 
- 另外，也可以通过查找该模块是否有 github 的托管，通过 github 的地址拉去，例如 `gopkg.in/ini.v1` 模块在 github 上的仓库为 `github.com/go-ini/ini` 。可以通过 `go get github.com/go-ini/ini`  获取。
+ 另外，也可以通过查找该模块是否有 github 的托管，通过 github 的地址拉取，例如 `gopkg.in/ini.v1` 模块在 github 上的仓库为 `github.com/go-ini/ini` 。可以通过 `go get github.com/go-ini/ini`  获取。

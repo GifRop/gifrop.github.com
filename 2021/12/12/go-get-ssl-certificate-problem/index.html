@@ -27,28 +27,28 @@
     <!-- meta -->
 
 
-<title>利用github分支同步博客代码，方便不同机器上更新博客 | KeyKernel&#39;s Blog</title>
+<title>go get 时出现 SSL certificate problem | KeyKernel&#39;s Blog</title>
 
 
-    <meta name="keywords" content="hexo, github, linux、docker、coder">
+    <meta name="keywords" content="go, git, linux、docker、coder">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="使用github搭建博客后，每次更新需要在原来的代码基础上更新。如果在其他个人电脑上，没有原来的代码，则无法立即同步更新博客。这时候我们可以选择将代码push到一些代码服务器上，但是我们这里可以这么做。">
+    <meta name="description" content="使用 go get 下载依赖时，出现 SSL certificate problem: certificate has expired 错误">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用github分支同步博客代码，方便不同机器上更新博客">
-<meta property="og:url" content="http://keykernel.org/2018/05/13/hexo-blog-sync-git-branch/index.html">
+<meta property="og:title" content="go get 时出现 SSL certificate problem">
+<meta property="og:url" content="http://keykernel.org/2021/12/12/go-get-ssl-certificate-problem/index.html">
 <meta property="og:site_name" content="KeyKernel&#39;s Blog">
-<meta property="og:description" content="使用github搭建博客后，每次更新需要在原来的代码基础上更新。如果在其他个人电脑上，没有原来的代码，则无法立即同步更新博客。这时候我们可以选择将代码push到一些代码服务器上，但是我们这里可以这么做。">
+<meta property="og:description" content="使用 go get 下载依赖时，出现 SSL certificate problem: certificate has expired 错误">
 <meta property="og:locale">
-<meta property="article:published_time" content="2018-05-13T06:51:29.000Z">
-<meta property="article:modified_time" content="2021-07-18T02:47:39.000Z">
+<meta property="article:published_time" content="2021-12-12T02:40:01.000Z">
+<meta property="article:modified_time" content="2021-12-12T14:45:30.000Z">
 <meta property="article:author" content="KeyKernel">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="go">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
 
 
@@ -138,10 +138,10 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        利用github分支同步博客代码，方便不同机器上更新博客
+        go get 时出现 SSL certificate problem
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2018/05/" class="post-meta__date button">2018-05-13</a>
+        <a href="/archives/2021/12/" class="post-meta__date button">2021-12-12</a>
         
  
         
@@ -175,13 +175,13 @@
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <p>使用github搭建博客后，每次更新需要在原来的代码基础上更新。如果在其他个人电脑上，没有原来的代码，则无法立即同步更新博客。这时候我们可以选择将代码push到一些代码服务器上，但是我们这里可以这么做。<span id="more"></span><br>首先，我们先对github中博客的代码仓库建立一个新的分支hexo_code，并设置代码库的Branches-&gt;Default branches为新建的分支hexo_code。<br>克隆代码库到本地:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:Users/page.github.com.git<br><span class="hljs-built_in">cd</span> page.github.com.git<br></code></pre></td></tr></table></figure>
-<p>将博客代码全部拷贝到page.github.com.git目录, 如果themes不是使用的默认的theme。则需要删除掉该主题目录中的.git目录。<br>这时我们就可以把当前目录全部推送到github的新branches了。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add .<br>git commit -m <span class="hljs-string">&#x27;new&#x27;</span><br>git push origin hexo_code<br></code></pre></td></tr></table></figure>
-<p>这样我们在其他的电脑上，只需要clone代码(记得添加ssh key)，并在目录中执行npm install。之后就能按照正常的操作更新博客了。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:Users/page.github.com.git<br><span class="hljs-built_in">cd</span> page.github.com.git<br>npm install //在其他机器上执行  <br><br>//更新博客  <br>hexo new <span class="hljs-string">&#x27;test&#x27;</span> //新建文章  <br>hexo g          //生成页面代码  <br>hexo d          //部署页面  <br><br>//同步博客代码到git  <br>git add <span class="hljs-built_in">source</span>/_posts/test.md<br>git commit -m <span class="hljs-string">&quot;new up test&quot;</span><br>git push origin hexo_code<br></code></pre></td></tr></table></figure>
-<p>done.  </p>
+        <p>使用 go get 下载依赖时，出现 SSL certificate problem: certificate has expired 错误<span id="more"></span>：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">go get gopkg.in/ini.v1                               <br><span class="hljs-comment"># cd .; git clone -- https://gopkg.in/ini.v1 /Users/xxx/go/src/gopkg.in/ini.v1</span><br>Cloning into <span class="hljs-string">&#x27;/Users/xxx/go/src/gopkg.in/ini.v1&#x27;</span>...<br>fatal: unable to access <span class="hljs-string">&#x27;https://gopkg.in/ini.v1/&#x27;</span>: SSL certificate problem: certificate has expired<br>package gopkg.in/ini.v1: <span class="hljs-built_in">exit</span> status 128<br></code></pre></td></tr></table></figure>
+
+<p>这是该模块所在服务端使用的 https 证书问题，certificate has expired 是证书已经过期，类似的错误还有 Invalid 无效证书等。可以通过设置不进行证书验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config –global http.sslVerify <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<p> 另外，也可以通过查找该模块是否有 github 的托管，通过 github 的地址拉去，例如 <code>gopkg.in/ini.v1</code> 模块在 github 上的仓库为 <code>github.com/go-ini/ini</code> 。可以通过 <code>go get github.com/go-ini/ini</code>  获取。</p>
 
     </div>
     
@@ -193,7 +193,7 @@
             <strong>
                 Permalink: 
             </strong>
-            <a href="http://keykernel.org/2018/05/13/hexo-blog-sync-git-branch/">http://keykernel.org/2018/05/13/hexo-blog-sync-git-branch/</a>
+            <a href="http://keykernel.org/2021/12/12/go-get-ssl-certificate-problem/">http://keykernel.org/2021/12/12/go-get-ssl-certificate-problem/</a>
         </p>
         
             <strong>
@@ -203,15 +203,15 @@
         
     </div>
  
-    <div class="post-footer__meta"><p>updated at 2021-07-18</p></div> 
-    <div class="post-meta__cats"><a href="/tags/hexo/" class="post-tags__link button"># hexo</a><a href="/tags/github/" class="post-tags__link button"># github</a></div> 
+    <div class="post-footer__meta"><p>updated at 2021-12-12</p></div> 
+    <div class="post-meta__cats"><a href="/tags/go/" class="post-tags__link button"># go</a><a href="/tags/git/" class="post-tags__link button"># git</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/2021/12/12/go-get-ssl-certificate-problem/" class="nav__link">
+                <a href="/2021/12/12/dns-log-server/" class="nav__link">
                     <div>
                         <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
                     </div>
@@ -220,7 +220,7 @@
                             Previous Post
                         </div>
                         <div class="nav__title">
-                            go get 时出现 SSL certificate problem
+                            打造自己的 dns 记录服务
                         </div>
                     </div>
                 </a>
@@ -228,13 +228,13 @@
         </div>
         <div class="nav__next">
             
-                <a href="/2018/05/13/docker-run-in-user/" class="nav__link">
+                <a href="/2018/05/13/hexo-blog-sync-git-branch/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            使用user账号登录docker容器
+                            利用github分支同步博客代码，方便不同机器上更新博客
                         </div>
                     </div>
                     <div>
@@ -331,8 +331,8 @@
     <script>
         function loadComment() {
             window.disqus_config = function () {
-                this.page.url = 'http://keykernel.org/2018/05/13/hexo-blog-sync-git-branch/';
-                this.page.identifier = '2018/05/13/hexo-blog-sync-git-branch/';
+                this.page.url = 'http://keykernel.org/2021/12/12/go-get-ssl-certificate-problem/';
+                this.page.identifier = '2021/12/12/go-get-ssl-certificate-problem/';
             };
             (function(){
                 var dsq = document.createElement('script');

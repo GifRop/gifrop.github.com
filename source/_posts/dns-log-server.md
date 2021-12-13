@@ -65,6 +65,8 @@ func (dns *DNS) ServerDNS(addr *net.UDPAddr, conn *net.UDPConn, msg dnsmessage.M
 	port := addr.Port
 ```
 
+实际测试发现，获取到的 IP 为 dns 查询链路的最后一个节点的 IP 地址，查资料发现，dns 请求是一个类似深度递归一样的操作，每个节点单独与下一个节点连接查询，当前节点无法知道前面节点从哪里接到的请求。所以，实际在 dns 回显记录服务中，难以获取到 client ip 数据。
+
 接着让正常请求能够返回，获取请求类型，判断是否是 A 或者 AAAA ，根据类型进行处理：
 
 ```go

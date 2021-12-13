@@ -1,5 +1,5 @@
 ---
-title: /dev/ptmx:no space left on device: unknown
+title: /dev/ptmx no space left on device
 date: 2021-12-13 22:29:18
 tags: [docker]
 ---

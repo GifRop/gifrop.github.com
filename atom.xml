@@ -6,7 +6,7 @@
   <link href="http://keykernel.org/atom.xml" rel="self"/>
   
   <link href="http://keykernel.org/"/>
-  <updated>2021-12-13T14:27:22.000Z</updated>
+  <updated>2021-12-13T14:45:58.000Z</updated>
   <id>http://keykernel.org/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>/dev/ptmx no space left on device</title>
+    <link href="http://keykernel.org/2021/12/13/ptmx-no-space-left-on-device/"/>
+    <id>http://keykernel.org/2021/12/13/ptmx-no-space-left-on-device/</id>
+    <published>2021-12-13T14:29:18.000Z</published>
+    <updated>2021-12-13T14:45:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用 <code>docker exec -it 容器id bash</code> 进入容器时，出现错误：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">OCI runtime exec failed: exec failed: container_linux.go:370:starting container process caused:open /dev/ptmx: no space left on device: unknown<br></code></pre></td></tr></table></figure><p>这个问题主要是由于伪终端数量限制了，在相应的机器上，执行下面命令即可：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sysctl -w kernel.pty.max=8192<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在使用 &lt;code&gt;docker exec -it 容器id bash&lt;/code&gt; 进入容器时，出现错误：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class</summary>
+      
+    
+    
+    
+    
+    <category term="docker" scheme="http://keykernel.org/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>打造自己的 dns 记录服务</title>
